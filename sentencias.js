@@ -26,3 +26,11 @@ var user4 = {
 }
 
 db.users.insertMany([user3, user4])
+
+// Nuevo usuario con diferentes propiedades
+var user5 = {
+  name: 'Rafael',
+  email: 'rafa@mail5.com',
+  support: true,
+  created_at: new Date(),
+}
