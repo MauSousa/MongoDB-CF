@@ -24,3 +24,17 @@ db.users.updateOne(
   { created_at: { $exists: true } },
   { $unset: { created_at: true } }
 )
+
+// $inc -> incrementa el valor de un número entero que especifiquemos
+
+// Incrementa en 1 la edad de Rafael
+db.users.updateOne({ name: 'Rafael' }, { $inc: { age: 1 } })
+
+// Decrementa en 1 la edad de Rafael
+db.users.updateOne({ name: 'Rafael' }, { $inc: { age: -1 } })
+
+// upsert -> update un dato si no sabemos si existe o no
+
+db.users.updateOne({ name: 'Luis' }, { $set: { age: 28 } }, { upsert: true })
+
+db.users.updateOne({ name: 'Luis' }, { $inc: { age: -1 } })
